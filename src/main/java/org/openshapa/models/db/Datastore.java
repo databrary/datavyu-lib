@@ -73,14 +73,6 @@ public interface Datastore {
     throws UserWarningException;
 
     /**
-     * Adds a variable to the datastore.
-     *
-     * @param var The new variable to add to the datastore.
-     */
-    @Deprecated
-    void addVariable(final Variable var);
-
-    /**
      * Removes a variable from the datastore.
      *
      * @param var The variable to remove from the datastore.
