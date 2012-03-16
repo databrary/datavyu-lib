@@ -41,9 +41,26 @@ public interface Datastore {
     List<Variable> getSelectedVariables();
 
     /**
+     * Clears the variable selection - sets selected to false for every variable
+     * in the datastore.
+     */
+    void clearVariableSelection();
+
+    /**
      * @return All the selected cells, across the entire datastore.
      */
     List<Cell> getSelectedCells();
+
+    /**
+     * Clears the cell selection - sets selected to false for every cell in the
+     * datastore.
+     */
+    void clearCellSelection();
+
+    /**
+     * Clear both the variable and cell selections.
+     */
+    void deselectAll();
 
     /**
      * @param varName The name of the variable to fetch.
@@ -98,7 +115,7 @@ public interface Datastore {
      * unsaved, false otherwise.
      */
     void canSetUnsaved(final boolean canSet);
-    
+
     /**
      * Used to flag all changes in the datastore as committed. isChanged will
      * return false after calling this method.
