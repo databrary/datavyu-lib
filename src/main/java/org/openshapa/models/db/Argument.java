@@ -22,16 +22,15 @@
  */
 package org.openshapa.models.db;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The arguments held within the matrix.
  */
-public final class Argument {
-    /**
-     * All the possible types for an argument/variable.
-     */
+public final class Argument implements Serializable {  
+    
     public enum Type {
         MATRIX,
         TEXT,
@@ -66,7 +65,7 @@ public final class Argument {
     }
 
     public void addChildArgument(final Type newType) {
-        Argument child = new Argument("arg" + childArguments.size() + 1, newType);
+        Argument child = new Argument(String.format("arg%02d", childArguments.size() + 1), newType);
         childArguments.add(child);
     }
 }
