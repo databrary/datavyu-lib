@@ -121,6 +121,45 @@ public interface Cell {
      * @param highlighted True if this cell is highlighted, false otherwise.
      */
     void setHighlighted(final boolean highlighted);
+    
+    /**
+     * Adds a new argument to a matrix variable.
+     * 
+     * @param int index - the index of the argument in childArguments to change
+     * @param val - The value to set the argument to
+     */
+    void setMatrixValue(final int index, final String val);
+    
+    Value getMatrixValue(final int index);
+    
+    /**
+     * Removes an argument from a matrix variable.
+     * 
+     * @param int index - the index of argument to clear from the matrix 
+     */
+    void clearMatrixValue(final int index);
+    
+    /**
+     * Adds a new argument to a matrix variable.
+     * 
+     * @param Argument.Type type - the type of argument to add to the matrix 
+     */
+    void addMatrixValue(final Argument.Type type);
+    
+    /**
+     * Moves an argument from one index to another in a matrix.
+     * 
+     * @param int old_index - the index in childArguments of argument to move  
+     * @param int old_index - the index in childArguments of where to move to  
+     */
+    void moveMatrixValue(final int old_index, final int new_index);
+    
+    /**
+     * Removes an argument from a matrix variable.
+     * 
+     * @param int index - the index in childArguments of argument to remove from the matrix 
+     */
+    void removeMatrixValue(final int index);
 
     /**
      * Adds a listener that needs to be notified when the cell changes.
@@ -131,5 +170,5 @@ public interface Cell {
      * Removes a listener from the list of things that need to be notified when
      * the cell changes.
      */
-    void removeListener(final CellListener listener);
+    void removeListener(final CellListener listener);  
 }

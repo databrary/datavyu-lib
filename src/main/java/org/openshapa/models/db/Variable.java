@@ -32,7 +32,7 @@ public interface Variable {
     /**
      * Creates and inserts a cell into the variable.
      *
-     * @return The newly created variable.
+     * @return The newly created cell.
      */
     Cell createCell();
 
@@ -117,6 +117,32 @@ public interface Variable {
      */
     void setName(final String newName) throws UserWarningException;
 
+    /**
+     * Adds a new argument to a matrix variable.
+     * 
+     * @param Argument.Type type - the type of argument to add to the matrix 
+     */
+    void addArgument(final Argument.Type type);
+    
+    /**
+     * Moves an argument left
+     * 
+     * @param String name - the type of argument to move 
+     * @param index - index to move the argument to
+     */
+    void moveArgument(final int old_index, final int new_index);
+    
+    void moveArgument(final String name, final int new_index);
+
+    /**
+     * Removes an argument from a matrix variable.
+     * 
+     * @param String name - the type of argument to remove from the matrix 
+     */
+    void removeArgument(final String name);
+    
+    int getArgumentIndex(String name);
+    
     /**
      * Adds a listener that needs to be notified when the variable changes.
      */

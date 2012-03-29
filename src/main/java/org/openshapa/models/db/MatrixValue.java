@@ -43,5 +43,7 @@ public interface MatrixValue extends Value {
      *
      * @return The newly created argument that was added to this matrix.
      */
-    Value createArgument(Argument.Type argType);    
+    Value createArgument(Argument.Type argType);   
+    
+    void removeArgument(final int index);
 }
