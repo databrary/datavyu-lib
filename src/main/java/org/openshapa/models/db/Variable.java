@@ -122,7 +122,7 @@ public interface Variable {
      * 
      * @param Argument.Type type - the type of argument to add to the matrix 
      */
-    void addArgument(final Argument.Type type);
+    Argument addArgument(final Argument.Type type);
     
     /**
      * Moves an argument left
