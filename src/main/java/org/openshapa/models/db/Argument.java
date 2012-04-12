@@ -45,6 +45,9 @@ public final class Argument implements Serializable {
 
     // The child arguments - this is empty if no child arguments.
     public List<Argument> childArguments;
+    
+    // The ID of this variable
+    public long id;
 
     /**
      * Constructor.
@@ -55,6 +58,8 @@ public final class Argument implements Serializable {
      */
     public Argument(final String newName,
                     final Type newType) {
+        
+        id = this.hashCode();
         name = newName;
         type = newType;
         childArguments = new ArrayList<Argument>();
@@ -63,9 +68,24 @@ public final class Argument implements Serializable {
             addChildArgument(Type.NOMINAL);
         }
     }
+    
+    public Argument(final String newName,
+                    final Type newType,
+                    final long id) {
+        this(newName, newType);
+        this.id = id;
+    }
 
     public void addChildArgument(final Type newType) {
         Argument child = new Argument(String.format("arg%02d", childArguments.size() + 1), newType);
         childArguments.add(child);
+    }
+    
+    public boolean equals(Argument other) {
+        if(other.id == this.id) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
