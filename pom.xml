@@ -44,8 +44,8 @@
   <distributionManagement>
     <repository>
       <id>repo</id>
-      <name>openshapa-lib</name>
-      <url>scp://hudson@openshapa.org/var/www/maven2</url>
+      <name>openshapa-lib</name>      
+      <url>scp://openshapa.org/var/www/maven2</url>
     </repository>
   </distributionManagement>
 

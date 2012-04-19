@@ -1,0 +1,8 @@
+<settings>  
+<servers>
+    <server>
+      <id>repo</id>
+      <username>hudson</username>
+    </server>
+  </servers>
+  </settings>
