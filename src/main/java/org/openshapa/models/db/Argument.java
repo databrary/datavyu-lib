@@ -64,6 +64,7 @@ public final class Argument implements Serializable {
         type = newType;
         childArguments = new ArrayList<Argument>();
         
+        // Matrix arguments default with a single child nominal.
         if (type == Type.MATRIX) {
             addChildArgument(Type.NOMINAL);
         }
@@ -81,6 +82,10 @@ public final class Argument implements Serializable {
         childArguments.add(child);
     }
     
+    public void clearChildArguments() {
+        childArguments.clear();
+    }
+
     public boolean equals(Argument other) {
         if(other.id == this.id) {
             return true;
