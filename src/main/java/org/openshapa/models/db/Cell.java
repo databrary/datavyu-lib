@@ -97,6 +97,11 @@ public interface Cell {
      * @return The value of the cell.
      */
     Value getValue();
+    
+    /**
+     * @return The unique id of the cell.
+     */
+    String getCellID();
 
     /**
      * @return True if the cell is selected, false otherwise.
