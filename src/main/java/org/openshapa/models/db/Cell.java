@@ -61,6 +61,9 @@ public interface Cell {
      * @return The onset timestamp in milliseconds. Returns -1 if the onset
      * cannot be resolved.
      */
+	
+	Cell getFreshCell();
+	
     long getOnset();
     
     /**
