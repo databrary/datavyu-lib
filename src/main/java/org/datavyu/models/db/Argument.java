@@ -78,7 +78,7 @@ public final class Argument implements Serializable {
     }
 
     public void addChildArgument(final Type newType) {
-        Argument child = new Argument(String.format("arg%02d", childArguments.size() + 1), newType);
+        Argument child = new Argument(String.format("code%02d", childArguments.size() + 1), newType);
         childArguments.add(child);
     }
     
