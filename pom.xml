@@ -15,20 +15,20 @@
          * openshapa/Info.plist - so that the OSX build works correctly.
 
   -->
-  
-  <licenses>
+
+    <licenses>
     <license>
       <name>MIT</name>
       <url>http://www.opensource.org/licenses/MIT</url>
-      <distribution>repo</distribution>    
+        <distribution>repo</distribution>
     </license>
   </licenses>
 
   <version>0.0.81</version>
   <name>datavyu-lib</name>
-  <url>http://openshapa.org</url>  
+    <url>http://datavyu.org</url>
 
-  <!-- Our organisation. -->
+    <!-- Our organisation. -->
   <organization>
     <name>NICTA</name>
     <url>http://www.nicta.com.au</url>
@@ -37,15 +37,14 @@
   <!-- Our source control. -->
   <scm>
     <tag>master</tag>
-    <url>https://github.com/OpenSHAPA/openshapa-lib</url>
+      <url>https://github.com/databrary/datavy-lib</url>
   </scm>
 
   <!-- The location for generating the website. -->
   <distributionManagement>
-
       <repository>
-          <id>repo</id>
-          <url>scpexe://datavyu.org:777/var/www/datavyu/maven2</url>
+          <id>databrary</id>
+          <url>scpexe://databrary1.databrary.org:/var/www/datavyu/maven2</url>
       </repository>
   </distributionManagement>
 
@@ -119,8 +118,8 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-    
-      <plugin>
+
+          <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <executions>
