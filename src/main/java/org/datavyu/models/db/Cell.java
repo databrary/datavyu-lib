@@ -39,21 +39,21 @@ public interface Cell {
      * cannot be resolved.
      */
     long getOffset();
-    
+
     /**
      * Sets the offset for this cell.
      *
      * @param newOffset The new offset timestamp in milliseconds to use for this
-     * cell.
+     *                  cell.
      */
     void setOffset(final long newOffset);
-    
+
     /**
      * Sets the offset for this cell.
      *
      * @param newOffset The new onset timestamp for this cell in string in the
-     * format "HH:MM:SS:mmm" where HH = hours, MM = minutes, SS = seconds and
-     * mmm = milliseconds.
+     *                  format "HH:MM:SS:mmm" where HH = hours, MM = minutes, SS = seconds and
+     *                  mmm = milliseconds.
      */
     void setOffset(final String newOffset);
 
@@ -61,11 +61,11 @@ public interface Cell {
      * @return The onset timestamp in milliseconds. Returns -1 if the onset
      * cannot be resolved.
      */
-	
-	Cell getFreshCell();
-	
+
+    Cell getFreshCell();
+
     long getOnset();
-    
+
     /**
      * @return the onset timestamp in a HH:mm:ss:SSS format, where HH is 24 hour
      * mm is minutes in an hour, ss is seconds in a minute and SSS is
@@ -77,16 +77,16 @@ public interface Cell {
      * Sets the onset for this cell.
      *
      * @param newOnset The new onset timestamp for this cell in string in the
-     * format "HH:MM:SS:mmm" where HH = hours, MM = minutes, SS = seconds and
-     * mmm = milliseconds.
+     *                 format "HH:MM:SS:mmm" where HH = hours, MM = minutes, SS = seconds and
+     *                 mmm = milliseconds.
      */
     void setOnset(final String newOnset);
-    
+
     /**
      * Sets the onset for this cell.
      *
      * @param newOnset The new onset timestamp in milliseconds to use for this
-     * cell.
+     *                 cell.
      */
     void setOnset(final long newOnset);
 
@@ -100,7 +100,7 @@ public interface Cell {
      * @return The value of the cell.
      */
     Value getValue();
-    
+
     /**
      * @return The unique id of the cell.
      */
@@ -129,43 +129,43 @@ public interface Cell {
      * @param highlighted True if this cell is highlighted, false otherwise.
      */
     void setHighlighted(final boolean highlighted);
-    
+
     /**
      * Adds a new argument to a matrix variable.
-     * 
+     *
      * @param int index - the index of the argument in childArguments to change
      * @param val - The value to set the argument to
      */
     void setMatrixValue(final int index, final String val);
-    
+
     Value getMatrixValue(final int index);
-    
+
     /**
      * Removes an argument from a matrix variable.
-     * 
-     * @param int index - the index of argument to clear from the matrix 
+     *
+     * @param int index - the index of argument to clear from the matrix
      */
     void clearMatrixValue(final int index);
-    
+
     /**
      * Adds a new argument to a matrix variable.
-     * 
-     * @param Argument.Type type - the type of argument to add to the matrix 
+     *
+     * @param Argument type - the type of argument to add to the matrix
      */
-    void addMatrixValue(final Argument.Type type);
-    
+    void addMatrixValue(final Argument type);
+
     /**
      * Moves an argument from one index to another in a matrix.
-     * 
-     * @param int old_index - the index in childArguments of argument to move  
-     * @param int old_index - the index in childArguments of where to move to  
+     *
+     * @param int old_index - the index in childArguments of argument to move
+     * @param int old_index - the index in childArguments of where to move to
      */
     void moveMatrixValue(final int old_index, final int new_index);
-    
+
     /**
      * Removes an argument from a matrix variable.
-     * 
-     * @param int index - the index in childArguments of argument to remove from the matrix 
+     *
+     * @param int index - the index in childArguments of argument to remove from the matrix
      */
     void removeMatrixValue(final int index);
 
@@ -178,5 +178,5 @@ public interface Cell {
      * Removes a listener from the list of things that need to be notified when
      * the cell changes.
      */
-    void removeListener(final CellListener listener);  
+    void removeListener(final CellListener listener);
 }

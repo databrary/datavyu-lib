@@ -29,13 +29,15 @@ import java.util.List;
 /**
  * The arguments held within the matrix.
  */
-public final class Argument implements Serializable {  
-    
+public final class Argument implements Serializable {
+
     public enum Type {
         MATRIX,
         TEXT,
         NOMINAL
-    };
+    }
+
+    ;
 
     // The name of argument.
     public String name;
@@ -45,31 +47,31 @@ public final class Argument implements Serializable {
 
     // The child arguments - this is empty if no child arguments.
     public List<Argument> childArguments;
-    
+
     // The ID of this variable
     public long id;
 
     /**
      * Constructor.
      *
-     * @param newName The new name to use for the argument.
-     * @param newType The new type to use for the argument.
+     * @param newName  The new name to use for the argument.
+     * @param newType  The new type to use for the argument.
      * @param newValue The new value to use for the argument.
      */
     public Argument(final String newName,
                     final Type newType) {
-        
+
         id = this.hashCode();
         name = newName;
         type = newType;
         childArguments = new ArrayList<Argument>();
-        
+
         // Matrix arguments default with a single child nominal.
         if (type == Type.MATRIX) {
             addChildArgument(Type.NOMINAL);
         }
     }
-    
+
     public Argument(final String newName,
                     final Type newType,
                     final long id) {
@@ -77,17 +79,18 @@ public final class Argument implements Serializable {
         this.id = id;
     }
 
-    public void addChildArgument(final Type newType) {
-        Argument child = new Argument(String.format("arg%02d", childArguments.size() + 1), newType);
+    public Argument addChildArgument(final Type newType) {
+        Argument child = new Argument(String.format("code%02d", childArguments.size() + 1), newType);
         childArguments.add(child);
+        return child;
     }
-    
+
     public void clearChildArguments() {
         childArguments.clear();
     }
 
     public boolean equals(Argument other) {
-        if(other.id == this.id) {
+        if (other.id == this.id) {
             return true;
         } else {
             return false;

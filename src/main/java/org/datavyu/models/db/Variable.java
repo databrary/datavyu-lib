@@ -30,6 +30,12 @@ import java.util.List;
 public interface Variable {
 
     /**
+     * Adds a already formed cell to the variable
+     * @param cell
+     */
+    void addCell(final Cell cell);
+
+    /**
      * Creates and inserts a cell into the variable.
      *
      * @return The newly created cell.

@@ -39,12 +39,11 @@ public interface MatrixValue extends Value {
      * argument will be 'arg1' if this is the first argument added to the matrix
      * 'arg2' if the second, and so on.
      *
-     * @param argType The type of argument to add to the matrix.
-     *
+     * @param arg The type of argument to add to the matrix.
      * @return The newly created argument that was added to this matrix.
      */
-    Value createArgument(Argument.Type argType);   
-    
+    Value createArgument(Argument arg);
+
     void removeArgument(final int index);
 
 

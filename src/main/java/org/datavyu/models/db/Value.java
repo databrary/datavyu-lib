@@ -52,6 +52,8 @@ public interface Value {
      */
     void set(final String value);
 
+    Argument getArgument();
+
     /**
      * @return must override toString in such a way that when isEmpty == true,
      * toString returns a valid empty value i.e. "<argName>"
