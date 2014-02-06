@@ -1,136 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.datavyu</groupId>
-  <artifactId>datavyu-lib</artifactId>
-  <packaging>jar</packaging>
-  <!--
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.datavyu</groupId>
+    <artifactId>datavyu-lib</artifactId>
+    <packaging>jar</packaging>
+    <!--
 
-       openshapa-lib version.
+         openshapa-lib version.
 
-       =========================================================================
-       MAKE SURE YOU ALSO EDIT:
-       =========================================================================
-         * openshapa/pom.xml (multiple locations)
-         * openshapa/Info.plist - so that the OSX build works correctly.
+         =========================================================================
+         MAKE SURE YOU ALSO EDIT:
+         =========================================================================
+           * openshapa/pom.xml (multiple locations)
+           * openshapa/Info.plist - so that the OSX build works correctly.
 
-  -->
+    -->
 
     <licenses>
-    <license>
-      <name>MIT</name>
-      <url>http://www.opensource.org/licenses/MIT</url>
-        <distribution>repo</distribution>
-    </license>
-  </licenses>
+        <license>
+            <name>MIT</name>
+            <url>http://www.opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-  <version>0.0.81</version>
-  <name>datavyu-lib</name>
+    <version>0.0.82</version>
+    <name>datavyu-lib</name>
     <url>http://datavyu.org</url>
 
     <!-- Our organisation. -->
-  <organization>
-    <name>NICTA</name>
-    <url>http://www.nicta.com.au</url>
-  </organization>
+    <organization>
+        <name>NICTA</name>
+        <url>http://www.nicta.com.au</url>
+    </organization>
 
-  <!-- Our source control. -->
-  <scm>
-    <tag>master</tag>
-      <url>https://github.com/databrary/datavy-lib</url>
-  </scm>
+    <!-- Our source control. -->
+    <scm>
+        <tag>master</tag>
+        <url>https://github.com/databrary/datavy-lib</url>
+    </scm>
 
-  <!-- The location for generating the website. -->
-  <distributionManagement>
-      <repository>
-          <id>databrary</id>
-          <url>scpexe://databrary1.databrary.org:/var/www/datavyu/maven2</url>
-      </repository>
-  </distributionManagement>
+    <!-- The location for generating the website. -->
+    <distributionManagement>
+        <repository>
+            <id>databrary</id>
+            <url>scpexe://databrary1.databrary.org:/var/www/datavyu/maven2</url>
+        </repository>
+    </distributionManagement>
 
-  <!-- External repositories - where to find third-party dependencies. -->
-  <repositories>
-    <repository>
-      <id>central</id>
-      <url>http://openshapa.org/maven2</url>
-      <layout>default</layout>
-    </repository>
+    <!-- External repositories - where to find third-party dependencies. -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>http://openshapa.org/maven2</url>
+            <layout>default</layout>
+        </repository>
 
-    <repository>
-      <id>openshapa</id>
-      <url>http://openshapa.org/maven2</url>
-      <layout>default</layout>
-    </repository>
+        <repository>
+            <id>openshapa</id>
+            <url>http://openshapa.org/maven2</url>
+            <layout>default</layout>
+        </repository>
 
-    <repository>
-      <id>maven</id>
-      <url>http://repo1.maven.org/maven2</url>
-      <layout>default</layout>
-    </repository>
-  </repositories>
+        <repository>
+            <id>maven</id>
+            <url>http://repo1.maven.org/maven2</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
 
-  <!-- Use an optimized build for releases. -->
-  <profiles>
-    <profile>
-      <id>release</id>
-      <build>
+    <!-- Use an optimized build for releases. -->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.0.2</version>
+                        <configuration>
+                            <debug>false</debug>
+                            <optimize>true</optimize>
+                            <source>1.6</source>
+                            <target>1.6</target>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <!-- Build properties. -->
+    <build>
+        <extensions>
+            <!-- Enabling the use of FTP -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>1.0-beta-6</version>
+            </extension>
+        </extensions>
+
         <plugins>
-          <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>2.0.2</version>
-            <configuration>
-              <debug>false</debug>
-              <optimize>true</optimize>
-              <source>1.6</source>
-              <target>1.6</target>
-            </configuration>
-          </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-      </build>
-    </profile>
-  </profiles>
-
-  <!-- Build properties. -->
-  <build>
-      <extensions>
-          <!-- Enabling the use of FTP -->
-          <extension>
-              <groupId>org.apache.maven.wagon</groupId>
-              <artifactId>wagon-ssh-external</artifactId>
-              <version>1.0-beta-6</version>
-          </extension>
-      </extensions>
-
-      <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <configuration>
-          <encoding>UTF-8</encoding>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.0.2</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-
-          <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+    </build>
 </project>
 
