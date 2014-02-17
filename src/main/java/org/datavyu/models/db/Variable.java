@@ -159,4 +159,8 @@ public interface Variable {
      * the variable changes.
      */
     void removeListener(final VariableListener listener);
+
+    void setOrderIndex(int newIndex);
+
+    int getOrderIndex();
 }
