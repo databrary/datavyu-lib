@@ -136,6 +136,14 @@ public interface Datastore {
     void setName(final String datastoreName);
 
     /**
+     * Updates the variable name in the hash table
+     * @param oldname
+     * @param newName
+     * @param variable
+     */
+    void updateVariableName(String oldname, String newName, Variable variable);
+
+    /**
      * Sets the title notifier that needs to be informed when the title of the
      * application needs to be updated.
      */
