@@ -124,6 +124,14 @@ public interface Variable {
     void setName(final String newName) throws UserWarningException;
 
     /**
+     * Sets the name of the variable.
+     *
+     * @param newName the new name to set with this database.
+     * @param grandfathered flag to exempt variable from naming rules
+     */
+    void setName(final String newName, final boolean grandfathered) throws UserWarningException;
+
+    /**
      * Adds a new argument to a matrix variable.
      * 
      * @param Argument.Type type - the type of argument to add to the matrix 
