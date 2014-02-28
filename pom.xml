@@ -38,7 +38,7 @@
     <!-- Our source control. -->
     <scm>
         <tag>master</tag>
-        <url>https://github.com/databrary/datavy-lib</url>
+        <url>https://github.com/databrary/datavyu-lib</url>
     </scm>
 
     <!-- The location for generating the website. -->
